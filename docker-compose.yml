@@ -1,0 +1,36 @@
+version: '3.2'
+
+networks: 
+  apinetwork:
+
+services:
+  # api:
+  #   build: 
+  #     context: .
+  #     dockerfile: ./dockerfiles/golang
+  #   container_name: golang
+  #   networks:
+  #     - apinetwork
+  #   volumes:
+  #     - ./src
+
+  mysql:
+      image: mysql:5.7
+      command: --default-authentication-plugin=mysql_native_password
+      container_name: mysql
+      tty: true
+      ports:
+          - "4306:3306"
+      environment:
+          MYSQL_DATABASE: godb
+          MYSQL_USER: golang_user
+          MYSQL_PASSWORD: golang_passw0rd
+          MYSQL_ROOT_PASSWORD: golang_passw0rd_r00t
+          SERVICE_TAGS: dev
+          SERVICE_NAME: mysql
+      volumes:
+          - ./mysql/data:/var/lib/mysql
+          - ./mysql/logs:/var/log/mysql
+          - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      networks:
+          - apinetwork
