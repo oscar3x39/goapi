@@ -1,5 +1,5 @@
 # goapi
-`Just made a simple router, controller and model based on golang`
+`Just made a simple router, controller and model based on Gin + gorm `
 
 ## Router and Controller
 `goapi/src/routers/api.go `
