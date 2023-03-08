@@ -1,8 +1,9 @@
 package controllers
 
 import (
-	r "goapi/ApiHelpers"
 	"goapi/models"
+
+	r "goapi/apihelpers"
 
 	"github.com/gin-gonic/gin"
 )

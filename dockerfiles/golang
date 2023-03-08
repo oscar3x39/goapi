@@ -1,8 +1,8 @@
-FROM golang
+FROM golang:1.19.5-alpine
 
-EXPOSE 80 443
+EXPOSE 80
 
-WORKDIR ${GOPATH}
+WORKDIR /src
 
 RUN apt-get update -y && \
 	apt-get install -y \

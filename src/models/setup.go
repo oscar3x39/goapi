@@ -10,7 +10,7 @@ var DB *gorm.DB
 // ConnectDataBase return true
 func ConnectDataBase() {
 
-	dsn := "homestead:secret@tcp(127.0.0.1:4306)/homestead?charset=utf8&parseTime=True&loc=Local"
+	dsn := "golang_user:golang_passw0rd@tcp(db:3306)/godb?charset=utf8&parseTime=True&loc=Local"
 	database, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if err != nil {
